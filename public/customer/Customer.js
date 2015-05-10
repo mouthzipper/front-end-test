@@ -6,6 +6,7 @@
      * - calculating queued time
      * - removing customer from the queue
      */
+     /* @ngInject */
     function Customer($http){
 
         return{
@@ -17,6 +18,7 @@
                 onServed: '&'
             },
             templateUrl: '/customer/customer.html',
+
             link: function(scope){
 
                 // calculate how long the customer has queued for

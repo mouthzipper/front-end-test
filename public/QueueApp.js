@@ -4,38 +4,38 @@
      * Bonus points - manipulating the without waiting for the
      * server request
      */
-    function QueueCtrl($scope, $http, $interval ) {
+     /* @ngInject */
+    function QueueCtrl($scope, $http, $timeout ) {
 
         $scope.customers = [];
         $scope.customersServed = [];
-        $interval(function(){
-            _getCustomers();
-             _getServedCustomers();
-        },300);
-        $scope.onCustomerAdded = function(){
-            // _getCustomers();
-            $interval(function(){
-              _getCustomers();
-            },300);
-        }
+
+         _getCustomers();
+         _getServedCustomers();
+
+        $scope.onCustomerAdded = function(customer ){
+            $scope.customers.push(customer);
+            $timeout(function(){
+                _getCustomers();
+            }.bind(this), 1000);
+        };
 
         $scope.onCustomerRemoved = function(){
-            _getCustomers();
-        }
+             _getCustomers();
+
+        };
 
         $scope.onCustomerServed = function(){
-            $interval(function(){
-               _getCustomers();
+              _getCustomers();
              _getServedCustomers();
-            },300);
-           
+
         }
 
         function _getServedCustomers(){
             return $http.get('/api/customers/served').then(function(res){
                 $scope.customersServed = res.data;
             })
-        }
+        };
 
         function _getCustomers(){
             return $http.get('/api/customers').then(function(res){

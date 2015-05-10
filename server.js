@@ -1,7 +1,7 @@
 var http = require('http');
 var uuid =  require('node-uuid');
 var serveStatic = require('node-static');
-var fileServer = new serveStatic.Server('./public');
+var fileServer = new serveStatic.Server('./dist');
 var express = require('express')
 var bodyParser = require('body-parser')
 

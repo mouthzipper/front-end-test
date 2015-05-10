@@ -1,0 +1,40 @@
+{
+  "name": "front-end-test",
+  "version": "0.0.0",
+  "description": "## The Simple Queue App The structure of this application is based off directives acting as components handling their own data. The backend is a simple NodeJS server serving in memory JSON objects. All the dependencies are versioned for your convenience :).",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.12.2",
+    "express": "~4.12.3",
+    "gulp": "^3.8.10",
+    "gulp-run": "~1.6.7",
+    "gulp-serve": "~0.3.1",
+    "node-static": "~0.7.6",
+    "node-uuid": "~1.4.3"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.10.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-minify-css": "^1.1.1",
+    "gulp-minify-html": "~1.0.2",
+    "gulp-ng-annotate": "^0.5.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "~2.0.0",
+    "gulp-uglify": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mouthzipper/front-end-test.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mouthzipper/front-end-test/issues"
+  }
+}

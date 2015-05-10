@@ -1,8 +1,6 @@
 (function () {
-    angular.module('qudini.QueueApp')
-        .directive('addCustomer', AddCustomer)
 
-
+    /* @ngInject */
     function AddCustomer($http){
         return {
             restrict: 'E',
@@ -36,5 +34,8 @@
         }
     }
 
-})()
+    angular.module('qudini.QueueApp')
+        .directive('addCustomer', AddCustomer);
+
+})();
 
