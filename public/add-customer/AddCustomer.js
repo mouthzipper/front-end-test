@@ -19,7 +19,18 @@
                 ];
 
                 scope.addCustomer = function(){
-
+                     if (!scope.product || !scope.name){
+                        alert('You must select a product and a name');
+                        return;
+                    }
+                    var customer = {
+                        name: scope.name,
+                        product: scope.product,
+                        joinedTime: new Date().toString()
+                    };
+                    return $http.post('/api/customer/add', customer).then(function(res){
+                        scope.onAdded()(customer)
+                    });
                 }
             }
         }

@@ -1,21 +1,22 @@
 (function () {
-
-    angular.module('qudini.QueueApp', [])
-        .controller('QueueCtrl', QueueCtrl)
-
+    'use strict';
     /**
      * Bonus points - manipulating the without waiting for the
      * server request
      */
-    function QueueCtrl($scope, $http) {
+    function QueueCtrl($scope, $http, $interval ) {
 
         $scope.customers = [];
         $scope.customersServed = [];
-        _getCustomers();
-        _getServedCustomers();
-
-        $scope.onCustomerAdded = function(){
+        $interval(function(){
             _getCustomers();
+             _getServedCustomers();
+        },300);
+        $scope.onCustomerAdded = function(){
+            // _getCustomers();
+            $interval(function(){
+              _getCustomers();
+            },300);
         }
 
         $scope.onCustomerRemoved = function(){
@@ -23,8 +24,11 @@
         }
 
         $scope.onCustomerServed = function(){
-            _getCustomers();
-            _getServedCustomers()
+            $interval(function(){
+               _getCustomers();
+             _getServedCustomers();
+            },300);
+           
         }
 
         function _getServedCustomers(){
@@ -40,6 +44,9 @@
         }
     }
 
+     angular.module('qudini.QueueApp', [])
+        .controller('QueueCtrl', QueueCtrl);
 
-})()
+
+})();
 
