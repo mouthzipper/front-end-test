@@ -7,24 +7,26 @@
     <script src="/QueueApp.js"></script>
     <script src="/customer/Customer.js"></script>
     <script src="/add-customer/AddCustomer.js"></script> -->
+     <link rel="stylesheet" href="style/style.css">
     <script src="/bower_components/angularjs/angular.min.js"></script>
     <script src="/js/main.js"></script>
 </head>
 <body class="Queue" ng-app="qudini.QueueApp" ng-controller="QueueCtrl">
-
-    <h2>Add Customer</h2>
-    <add-customer on-added="onCustomerAdded"></add-customer>
-    <h2>Queueing Customers</h2>
-    <ul class="Queue-customer-list">
-        <li ng-repeat="customerData in customers">
-            <customer customer="customerData" on-served="onCustomerServed" on-removed="onCustomerRemoved"></customer>
-        </li>
-    </ul>
-    <h2>Served customers</h2>
-    <ul class="Queue-customer-served-list">
-        <li ng-repeat="customerData in customersServed">
-            <customer customer="customerData" on-served="onCustomerServed" on-removed="onCustomerRemoved"></customer>
-        </li>
-    </ul>
+    <div class="content">
+         <h2>Add Customer</h2>
+        <add-customer on-added="onCustomerAdded"></add-customer>
+        <h2>Queueing Customers</h2>
+        <ul class="Queue-customer-list" id="queue">
+            <li ng-repeat="customerData in customers">
+                <customer customer="customerData" on-served="onCustomerServed" on-removed="onCustomerRemoved"></customer>
+            </li>
+        </ul>
+        <h2>Served customers</h2>
+        <ul class="Queue-customer-served-list" id="serve">
+            <li ng-repeat="customerData in customersServed">
+                <customer customer="customerData" on-served="onCustomerServed" on-removed="onCustomerRemoved"></customer>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>

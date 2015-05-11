@@ -13,11 +13,11 @@
          _getCustomers();
          _getServedCustomers();
 
-        $scope.onCustomerAdded = function(customer ){
+        $scope.onCustomerAdded = function( customer ){
             $scope.customers.push(customer);
             $timeout(function(){
                 _getCustomers();
-            }.bind(this), 1000);
+            }, 1000);
         };
 
         $scope.onCustomerRemoved = function(){
